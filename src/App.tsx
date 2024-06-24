@@ -1,9 +1,12 @@
+import CardDeckList from "./components/CardDeckList/CardDeckList"
+import Header from "./components/Header/Header"
 
 const App = () => {
   return (
-    <h1 className="text-3xl text-pink-300 font-bold underline">
-      Hello world!
-    </h1>
+    <>
+      <Header />
+      <CardDeckList />
+    </>
   )
 }
 

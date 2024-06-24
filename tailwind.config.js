@@ -17,7 +17,16 @@ export default {
       "xs" : { max: "450px" },
       "xxs" : { max: "375px" },
     },
-    extend: {},
+    fontFamily: {
+      'open': ['Open Sans', 'sans-serif'],
+    },
+    extend: {
+      colors: {
+        'darkGray': '#333333',
+        'mainColor': '#4CAF50',
+        'accentColor': '#FFEB3B',
+      },
+    },
   },
   plugins: [],
 }
