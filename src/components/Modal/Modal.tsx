@@ -1,17 +1,25 @@
-import React, { FC } from 'react'
+import { FC, useState } from 'react'
 import { useAppDispatch } from '../../hooks/useAppDispatch'
 import { close } from '../../store/features/modalSlice'
 import Button from '../../shared/Button/Button'
-import useInput from '../../hooks/useInput'
+import { addNewDeck } from '../../store/features/deckSlice'
+import { Deck } from '../../store/features/deckSlice'
 
 const Modal: FC = () => {
-  const { value, onChange } = useInput('')
+  const [value, setValue] = useState<string>('')
   const dispatch = useAppDispatch()
   const modalClose = (): void => {
     dispatch(close())
   }
   const addDeck = (): void => {
-    onChange({ target: { value: '' } })
+    if (value.trim() !== '') {
+      const newDeck: Deck = {
+        id: Math.random(),
+        title: value
+      }
+      dispatch(addNewDeck(newDeck))
+      setValue('')
+    }
   }
   return (
     <section>
@@ -22,7 +30,7 @@ const Modal: FC = () => {
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
           </svg>
         </button>
-        <input type="text" value={value} onChange={onChange} placeholder='Название колоды' className='outline-none border-2 border-gray-400 rounded-md p-2 w-full mt-5 transition-colors duration-300 ease-linear focus:border-gray-500' />
+        <input type="text" value={value} onChange={(eve) => setValue(eve.target.value)} placeholder='Название колоды' className='outline-none border-2 border-gray-400 rounded-md p-2 w-full mt-5 transition-colors duration-300 ease-linear focus:border-gray-500' />
         <Button onClick={addDeck} className='bg-mainColor px-4 py-2 mt-12 rounded-md text-white block mx-auto transition-colors duration-300 ease-in hover:bg-green-700'>
           Добавить колоду
         </Button>
@@ -32,5 +40,6 @@ const Modal: FC = () => {
 }
 
 export default Modal
+
 
 

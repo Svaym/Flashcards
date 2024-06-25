@@ -1,9 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit'
 import modalSlice from './features/modalSlice'
+import deckSlice, { loadDecks } from './features/deckSlice'
 
 export const store = configureStore({
   reducer: {
-    modal: modalSlice
+    modal: modalSlice,
+    decks: deckSlice
+  },
+  preloadedState: {
+    decks: loadDecks()
   }
 })
 
