@@ -2,7 +2,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import type { RootState } from '../store'
 
 export interface Deck{
-  id: string, // Используем string для id
+  id: number,
   title: string
 }
 interface DeckState {
@@ -20,7 +20,7 @@ export const deckSlice = createSlice({
       state.decks.push(action.payload)
       localStorage.setItem('decks', JSON.stringify(state.decks));
     },
-    removeDeck: (state, action: PayloadAction<string>) => {
+    removeDeck: (state, action: PayloadAction<number>) => {
       state.decks = state.decks.filter((item) => item.id !== action.payload)
       localStorage.setItem('decks', JSON.stringify(state.decks));
     },
@@ -47,3 +47,4 @@ export const loadDecks = () => {
 };
 
 export default deckSlice.reducer
+

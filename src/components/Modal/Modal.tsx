@@ -23,8 +23,8 @@ const Modal: FC = () => {
   }
   return (
     <section>
-      <div onClick={modalClose} className="fixed inset-0 bg-gray-800 bg-opacity-75 z-50"></div>
-      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 bg-white p-5 h-56 rounded-md w-1/2 md:w-4/5 xs:w-[90%] xxs:w-[95%]">
+      <div onClick={modalClose} className="fixed inset-0 bg-gray-800 bg-opacity-75 z-50 animate-zoom-in"></div>
+      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 bg-white animate-fade-in p-5 h-56 rounded-md w-1/2 md:w-4/5 xs:w-[90%] xxs:w-[95%]">
         <button onClick={modalClose} className='block ml-auto transition duration-300 ease-linear hover:bg-red-500'>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />

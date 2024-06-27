@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+import animations from '@midudev/tailwind-animations'
 export default {
+  plugins: [animations],
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -24,10 +26,9 @@ export default {
       colors: {
         'darkGray': '#333333',
         'mainColor': '#4CAF50',
-        'accentColor': '#FFEB3B',
+        'accentColor': '#cdff0b',
       },
     },
   },
-  plugins: [],
 }
 
